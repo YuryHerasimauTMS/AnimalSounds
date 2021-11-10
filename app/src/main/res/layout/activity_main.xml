@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-
+<!--    <data>-->
+<!---->
 <!--        <variable-->
 <!--            name="viewModel"-->
 <!--            type="com.example.listsui.mvvm.viewModel.ListUsersViewModel" />-->
-
-    </data>
+<!---->
+<!--    </data>-->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -26,11 +26,12 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="280dp"
             android:layout_marginRight="-160dp"
-            android:background=""
+            android:background="@color/viridian"
             android:rotation="270"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -87,6 +88,18 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:listitem="@layout/item_animal" />
+
+                <TextView
+                    android:id="@+id/animal_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine"
+                    android:text="Изучаем животный\nмир вместе!"
+                    android:textColor="@color/white"
+                    android:textSize="19sp"
+                    app:layout_constraintStart_toStartOf="@+id/recycler_view"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="24dp"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -1,0 +1,39 @@
+text_cat
+
+text_dog
+
+text_cow
+
+text_squirrel
+
+text_sheep
+
+text_goat
+
+text_mouse
+
+text_fox
+
+text_wolf
+
+text_hare
+
+text_hamster
+
+text_bear
+
+text_boar
+
+text_lion
+
+text_tiger
+Он урчит как котик милый,
+Но рычать хватает силы,
+Яркий весь и полосатый,
+И как дяденька усатый.
+
+text_hyena
+
+text_monkey
+
+text_elephant
