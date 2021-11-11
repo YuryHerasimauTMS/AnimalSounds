@@ -1,109 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/viridian">
 
-<!--    <data>-->
-<!---->
-<!--        <variable-->
-<!--            name="viewModel"-->
-<!--            type="com.example.listsui.mvvm.viewModel.ListUsersViewModel" />-->
-<!---->
-<!--    </data>-->
+    <ImageView
+        android:id="@+id/background_part"
+        android:layout_width="320dp"
+        android:layout_height="650dp"
+        android:layout_marginTop="200dp"
+        android:src="@drawable/shape_background"
+        app:layout_constraintHorizontal_bias="100.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/viridian">
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="280dp"
+        android:layout_marginRight="-160dp"
+        android:background="@color/viridian"
+        app:tabRippleColor="@color/viridian"
+        android:rotation="270"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tabIndicatorColor="@color/viridian"
+        app:tabMode="scrollable"
+        app:tabSelectedTextColor="@color/white"
+        app:tabTextAppearance="@style/CustomTextAppearanceTab"
+        app:tabTextColor="@color/inactive_tab_text">
 
-        <ImageView
-            android:layout_width="320dp"
-            android:layout_height="650dp"
-            android:layout_marginTop="200dp"
-            android:src="@drawable/shape_background"
-            app:layout_constraintHorizontal_bias="100.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tab"
+        <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="280dp"
-            android:layout_marginRight="-160dp"
-            android:background="@color/viridian"
-            android:rotation="270"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tabIndicatorColor="@color/viridian"
-            app:tabMode="scrollable"
-            app:tabSelectedTextColor="@color/white"
-            app:tabTextAppearance="@style/CustomTextAppearanceTab"
-            app:tabTextColor="@color/inactive_tab_text">
+            android:text="Птички" />
 
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Птички" />
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Рептилии" />
 
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Рептилии" />
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Водоплавающие" />
 
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Водоплавающие" />
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Звери" />
+    </com.google.android.material.tabs.TabLayout>
 
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Звери" />
-        </com.google.android.material.tabs.TabLayout>
+    <ViewFlipper
+        android:id="@+id/view_flipper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+<!--        app:displayed_child="@{viewModel.stateScreenListener}">-->
 
-        <ViewFlipper
-            android:id="@+id/view_flipper"
+<!--                    <ProgressBar-->
+<!--                        android:id="@+id/progress_bar"-->
+<!--                        android:layout_width="100dp"-->
+<!--                        android:layout_height="100dp"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:indeterminate="true" />-->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:displayed_child="@{viewModel.stateScreenListener}">
+            android:layout_height="match_parent">
 
-            <!--            <ProgressBar-->
-            <!--                android:id="@+id/progress_bar"-->
-            <!--                android:layout_width="100dp"-->
-            <!--                android:layout_height="100dp"-->
-            <!--                android:layout_gravity="center"-->
-            <!--                android:indeterminate="true" />-->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="180dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="65dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:listitem="@layout/item_animal" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/animal_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:inputType="textMultiLine"
+                android:text="Изучаем животный\nмир вместе!"
+                android:textColor="@color/white"
+                android:textSize="19sp"
+                app:layout_constraintStart_toStartOf="@+id/recycler_view"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recycler_view"
-                    android:layout_width="180dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="60dp"
-                    android:layout_marginTop="65dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:listitem="@layout/item_animal" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <TextView
-                    android:id="@+id/animal_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:inputType="textMultiLine"
-                    android:text="Изучаем животный\nмир вместе!"
-                    android:textColor="@color/white"
-                    android:textSize="19sp"
-                    app:layout_constraintStart_toStartOf="@+id/recycler_view"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginTop="24dp"/>
+    </ViewFlipper>
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </ViewFlipper>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>
+</androidx.constraintlayout.widget.ConstraintLayout>

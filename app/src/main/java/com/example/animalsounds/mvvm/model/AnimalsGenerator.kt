@@ -3,7 +3,7 @@ package com.example.animalsounds.mvvm.model
 import java.io.File
 import java.io.InputStream
 
-class AnimalsGenerator {
+object AnimalsGenerator {
 
     private val lineList = mutableListOf<String>()
     private val beastList = mutableListOf<Animal>()
