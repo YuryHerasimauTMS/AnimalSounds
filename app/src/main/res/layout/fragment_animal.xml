@@ -1,103 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/viridian">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="280dp"
-        android:layout_height="280dp"
-        android:layout_marginTop="112dp"
-        app:cardCornerRadius="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <data>
+        <variable
+            name="animal"
+            type="com.example.animalsounds.mvvm.model.Animal" />
+    </data>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/shape_gradient_fragment">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/viridian">
 
-            <ImageView
-                android:id="@+id/animal_pic_fragment"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:scaleX="1.5"
-                android:scaleY="1.5"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:src="@tools:sample/avatars" />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="280dp"
+            android:layout_height="280dp"
+            android:layout_marginTop="112dp"
+            app:cardCornerRadius="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/pic_constraint_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/shape_gradient_fragment">
 
-    <ImageButton
-        android:id="@+id/button_play"
-        android:layout_width="83dp"
-        android:layout_height="83dp"
-        android:layout_marginStart="200dp"
-        android:layout_marginTop="225dp"
-        android:background="@drawable/button_play_circle"
-        android:contentDescription="@string/app_name"
-        android:elevation="2dp"
-        android:src="@drawable/button_icon_play"
-        app:layout_constraintBottom_toBottomOf="@id/cardView"
-        app:layout_constraintEnd_toEndOf="@id/cardView"
-        app:layout_constraintStart_toStartOf="@id/cardView"
-        app:layout_constraintTop_toTopOf="@id/cardView" />
+                <ImageView
+                    android:id="@+id/animal_pic_fragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleX="1.5"
+                    android:scaleY="1.5"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@tools:sample/avatars" />
 
-    <Button
-        android:id="@+id/button_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:background="@color/transparent"
-        android:contentDescription="@string/app_name"
-        android:drawableLeft="@drawable/button_back"
-        android:text="Назад"
-        android:textAllCaps="false"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/cardView"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="-20dp"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:id="@+id/animal_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:inputType="textMultiLine"
-        android:text="Тигрик"
-        android:textColor="@color/white"
-        android:textSize="26sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@id/cardView"
-        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+        <ImageButton
+            android:id="@+id/button_play"
+            android:layout_width="83dp"
+            android:layout_height="83dp"
+            android:layout_marginStart="200dp"
+            android:layout_marginTop="225dp"
+            android:background="@drawable/button_play_circle"
+            android:contentDescription="@string/app_name"
+            android:elevation="2dp"
+            android:src="@drawable/button_icon_play"
+            app:layout_constraintBottom_toBottomOf="@id/cardView"
+            app:layout_constraintEnd_toEndOf="@id/cardView"
+            app:layout_constraintStart_toStartOf="@id/cardView"
+            app:layout_constraintTop_toTopOf="@id/cardView" />
 
-    <TextView
-        android:id="@+id/animal_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:text="Он урчит как котик милый,\nНо рычать хватает силы,\nЯркий весь и полосатый,\nИ как дяденька усатый."
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/animal_name"
-        app:layout_constraintTop_toBottomOf="@+id/animal_name"
-        android:layout_marginTop="20dp"/>
+        <Button
+            android:id="@+id/button_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:background="@color/transparent"
+            android:contentDescription="@string/app_name"
+            android:drawableLeft="@drawable/button_back"
+            android:text="Назад"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/cardView"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="-20dp" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/image_leaf"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView"
-        android:layout_marginTop="190dp"
-        android:layout_marginStart="-50dp"/>
+        <TextView
+            android:id="@+id/animal_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:inputType="textMultiLine"
+            android:text="Тигрик"
+            android:textColor="@color/white"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/cardView"
+            app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/animal_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:text="Он урчит как котик милый,\nНо рычать хватает силы,\nЯркий весь и полосатый,\nИ как дяденька усатый."
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/animal_name"
+            app:layout_constraintTop_toBottomOf="@+id/animal_name"
+            android:layout_marginTop="20dp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/image_leaf"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView"
+            android:layout_marginTop="190dp"
+            android:layout_marginStart="-50dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

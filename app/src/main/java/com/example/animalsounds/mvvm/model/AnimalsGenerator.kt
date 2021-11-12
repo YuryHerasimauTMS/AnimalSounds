@@ -1,7 +1,12 @@
 package com.example.animalsounds.mvvm.model
 
+import android.content.Context
+import android.util.Log
+import com.example.animalsounds.mvvm.viewModel.AnimalViewModel
 import java.io.File
+import java.io.FileReader
 import java.io.InputStream
+import java.security.AccessController.getContext
 
 object AnimalsGenerator {
 
@@ -17,9 +22,14 @@ object AnimalsGenerator {
     private val waterfowlsPath = "waterfowlsNames.txt"
 
     private fun createListOfStrings(path: String): MutableList<Animal>? {
-        val inputStream: InputStream = File(path).inputStream()
+        Log.d("AnimalsGeneratorR", "AnimalsGeneratorR")
+        val file = FileReader("beastsNames")
+        file.read()
+        Log.d("AnimalsGeneratorRR", "AnimalsGeneratorRR")
+        val inputStream: InputStream = File("animalNames/beastsNames.txt").inputStream()
         inputStream.bufferedReader().forEachLine { lineList.add(it) }
         lineList.forEach {
+            println(it)
             // Здесь три слова (имя, аватар, звук, текст)
             val words = it.split("\\s+".toRegex()).map { word ->
                 word.replace("""^[,\.]|[,\.]$""".toRegex(), "")
@@ -34,6 +44,7 @@ object AnimalsGenerator {
                 waterfowlsPath -> waterfowlList.add(animal)
             }
         }
+        Log.d("AnimalsGeneratorRRR", "AnimalsGeneratorRRR")
         when (path) {
             beastsPath -> return beastList
             birdsPath -> return birdsList
@@ -50,6 +61,12 @@ object AnimalsGenerator {
             "reptiles" -> return createListOfStrings(reptilesPath)
             "waterfowls" -> return createListOfStrings(waterfowlsPath)
         }
+//        val animalOne = Animal("nameA", "avatarA", "soundA", "textA")
+//        val animalTwo = Animal("nameB", "avatarB", "soundB", "textB")
+//        val animalList = mutableListOf<Animal>()
+//        animalList.add(animalOne)
+//        animalList.add(animalTwo)
+//        return animalList
         return null
     }
 }
