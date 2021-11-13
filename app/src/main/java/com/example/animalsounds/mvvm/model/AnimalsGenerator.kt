@@ -1,72 +1,193 @@
 package com.example.animalsounds.mvvm.model
 
-import android.content.Context
-import android.util.Log
-import com.example.animalsounds.mvvm.viewModel.AnimalViewModel
-import java.io.File
-import java.io.FileReader
-import java.io.InputStream
-import java.security.AccessController.getContext
-
 object AnimalsGenerator {
 
-    private val lineList = mutableListOf<String>()
-    private val beastList = mutableListOf<Animal>()
-    private val birdsList = mutableListOf<Animal>()
-    private val reptilesList = mutableListOf<Animal>()
-    private val waterfowlList = mutableListOf<Animal>()
+    private var beastsList = mutableListOf<Animal>()
+    private var birdsList = mutableListOf<Animal>()
+    private var reptilesList = mutableListOf<Animal>()
+    private var waterfowlsList = mutableListOf<Animal>()
 
-    private val beastsPath = "beastsNames.txt"
-    private val birdsPath = "birdsNames.txt"
-    private val reptilesPath = "reptilesNames.txt"
-    private val waterfowlsPath = "waterfowlsNames.txt"
+    private val beastsTextList = mutableListOf<String>()
+    private val birdsTextList = mutableListOf<String>()
+    private val reptilesTextList = mutableListOf<String>()
+    private val waterfowlsTextList = mutableListOf<String>()
 
-    private fun createListOfStrings(path: String): MutableList<Animal>? {
-        Log.d("AnimalsGeneratorR", "AnimalsGeneratorR")
-        val file = FileReader("beastsNames")
-        file.read()
-        Log.d("AnimalsGeneratorRR", "AnimalsGeneratorRR")
-        val inputStream: InputStream = File("animalNames/beastsNames.txt").inputStream()
-        inputStream.bufferedReader().forEachLine { lineList.add(it) }
-        lineList.forEach {
-            println(it)
-            // Здесь три слова (имя, аватар, звук, текст)
-            val words = it.split("\\s+".toRegex()).map { word ->
-                word.replace("""^[,\.]|[,\.]$""".toRegex(), "")
-            }
-            // Создаем экземпляр животного
-            val animal = Animal(words[0], words[1], words[2], words[3])
-            // Запись в соответствующий лист
-            when (path) {
-                beastsPath -> beastList.add(animal)
-                birdsPath -> birdsList.add(animal)
-                reptilesPath -> reptilesList.add(animal)
-                waterfowlsPath -> waterfowlList.add(animal)
-            }
-        }
-        Log.d("AnimalsGeneratorRRR", "AnimalsGeneratorRRR")
-        when (path) {
-            beastsPath -> return beastList
-            birdsPath -> return birdsList
-            reptilesPath -> return reptilesList
-            waterfowlsPath -> return waterfowlList
+    private const val beasts = "beasts"
+    private const val birds = "birds"
+    private const val reptiles = "reptiles"
+    private const val waterfowls = "waterfowls"
+
+    fun createAnimalList(animalType: String): MutableList<Animal>? {
+        when (animalType) {
+            beasts -> return beastsList
+            birds -> return birdsList
+            reptiles -> return reptilesList
+            waterfowls -> return waterfowlsList
         }
         return null
     }
 
-    fun createAnimalList(animalType: String): MutableList<Animal>? {
-        when (animalType) {
-            "beasts" -> return createListOfStrings(beastsPath)
-            "birds" -> return createListOfStrings(birdsPath)
-            "reptiles" -> return createListOfStrings(reptilesPath)
-            "waterfowls" -> return createListOfStrings(waterfowlsPath)
+    fun setAnimalsList(list: List<String>, id: String?, textList: List<String>) {
+        when (id) {
+            beasts -> {
+                list.forEach {
+                    println(it)
+                    val words = it.split("\\s+".toRegex()).map { word ->
+                        word.replace("""^[,\.]|[,\.]$""".toRegex(), "")
+                    }
+                    val animal = Animal(words[0], words[1], words[2], words[3])
+                    beastsList.add(animal)
+                }
+                textList.forEach {
+                    beastsTextList.add(it)
+                }
+            }
+            birds -> {
+                list.forEach {
+                    println(it)
+                    val words = it.split("\\s+".toRegex()).map { word ->
+                        word.replace("""^[,\.]|[,\.]$""".toRegex(), "")
+                    }
+                    val animal = Animal(words[0], words[1], words[2], words[3])
+                    birdsList.add(animal)
+                }
+                textList.forEach {
+                    birdsTextList.add(it)
+                }
+            }
+            reptiles -> {
+                list.forEach {
+                    println(it)
+                    val words = it.split("\\s+".toRegex()).map { word ->
+                        word.replace("""^[,\.]|[,\.]$""".toRegex(), "")
+                    }
+                    val animal = Animal(words[0], words[1], words[2], words[3])
+                    reptilesList.add(animal)
+                }
+                textList.forEach {
+                    reptilesTextList.add(it)
+                }
+            }
+            waterfowls -> {
+                list.forEach {
+                    println(it)
+                    val words = it.split("\\s+".toRegex()).map { word ->
+                        word.replace("""^[,\.]|[,\.]$""".toRegex(), "")
+                    }
+                    val animal = Animal(words[0], words[1], words[2], words[3])
+                    waterfowlsList.add(animal)
+                }
+                textList.forEach {
+                    waterfowlsTextList.add(it)
+                }
+            }
         }
-//        val animalOne = Animal("nameA", "avatarA", "soundA", "textA")
-//        val animalTwo = Animal("nameB", "avatarB", "soundB", "textB")
-//        val animalList = mutableListOf<Animal>()
-//        animalList.add(animalOne)
-//        animalList.add(animalTwo)
-//        return animalList
+    }
+
+    fun getTextAnimalsList(id: String): List<String>? {
+        when (id) {
+            beasts -> return beastsTextList
+            birds -> return birdsTextList
+            reptiles -> return reptilesTextList
+            waterfowls -> return waterfowlsTextList
+        }
         return null
+    }
+
+    fun compareTextAnimalsToAnimals(id: String?) {
+        val bufferListBeasts = mutableListOf<Animal>()
+        val bufferListBirds = mutableListOf<Animal>()
+        val bufferListReptiles = mutableListOf<Animal>()
+        val bufferListWaterfowls = mutableListOf<Animal>()
+        when (id) {
+            beasts -> {
+                beastsList.forEach { it ->
+                    val textId = it.animalText
+                    var str = ""
+                    var textFlag = 0
+                    beastsTextList.forEach {
+                        if (textFlag in 1..5) {
+                            textFlag++
+                        }
+                        if (it.startsWith(textId)) {
+                            textFlag = 1
+                        }
+                        if (textFlag in 2..5) {
+                            str += it
+                            str += "\n"
+                        }
+                    }
+                    it.setText(str)
+                    bufferListBeasts.add(it)
+                }
+                beastsList = bufferListBeasts
+            }
+            birds -> {
+                birdsList.forEach { it ->
+                    val textId = it.animalText
+                    var str = ""
+                    var textFlag = 0
+                    birdsTextList.forEach {
+                        if (textFlag in 1..5) {
+                            textFlag++
+                        }
+                        if (it.startsWith(textId)) {
+                            textFlag = 1
+                        }
+                        if (textFlag in 2..5) {
+                            str += it
+                            str += "\n"
+                        }
+                    }
+                    it.setText(str)
+                    bufferListBirds.add(it)
+                }
+                birdsList = bufferListBirds
+            }
+            reptiles -> {
+                reptilesList.forEach { it ->
+                    val textId = it.animalText
+                    var str = ""
+                    var textFlag = 0
+                    reptilesTextList.forEach {
+                        if (textFlag in 1..5) {
+                            textFlag++
+                        }
+                        if (it.startsWith(textId)) {
+                            textFlag = 1
+                        }
+                        if (textFlag in 2..5) {
+                            str += it
+                            str += "\n"
+                        }
+                    }
+                    it.setText(str)
+                    bufferListReptiles.add(it)
+                }
+                reptilesList = bufferListReptiles
+            }
+            waterfowls -> {
+                waterfowlsList.forEach { it ->
+                    val textId = it.animalText
+                    var str = ""
+                    var textFlag = 0
+                    waterfowlsTextList.forEach {
+                        if (textFlag in 1..5) {
+                            textFlag++
+                        }
+                        if (it.startsWith(textId)) {
+                            textFlag = 1
+                        }
+                        if (textFlag in 2..5) {
+                            str += it
+                            str += "\n"
+                        }
+                    }
+                    it.setText(str)
+                    bufferListWaterfowls.add(it)
+                }
+                waterfowlsList = bufferListWaterfowls
+            }
+        }
     }
 }

@@ -61,7 +61,7 @@
             app:layout_constraintTop_toTopOf="@id/cardView" />
 
         <Button
-            android:id="@+id/button_back"
+            android:id="@+id/buttonBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
@@ -81,7 +81,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"
             android:inputType="textMultiLine"
-            android:text="Тигрик"
+            android:text="@{animal.animalName}"
             android:textColor="@color/white"
             android:textSize="26sp"
             android:textStyle="bold"
@@ -93,7 +93,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textMultiLine"
-            android:text="Он урчит как котик милый,\nНо рычать хватает силы,\nЯркий весь и полосатый,\nИ как дяденька усатый."
+            android:text="@{animal.animalText}"
             android:textColor="@color/white"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="@+id/animal_name"
@@ -105,8 +105,9 @@
             android:layout_height="wrap_content"
             android:background="@drawable/image_leaf"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cardView"
-            android:layout_marginTop="190dp"
+            android:layout_marginBottom="-550dp"
             android:layout_marginStart="-50dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

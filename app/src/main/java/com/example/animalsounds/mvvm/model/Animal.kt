@@ -4,5 +4,9 @@ data class Animal(
     val animalName: String,
     val animalAvatar: String,
     val animalSound: String,
-    val animalText: String
-)
+    var animalText: String
+) {
+    fun setText(text: String) {
+        animalText = text
+    }
+}
