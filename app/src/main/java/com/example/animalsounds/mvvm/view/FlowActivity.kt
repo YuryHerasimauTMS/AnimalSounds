@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.animalsounds.databinding.ActivityFlowBinding
 import com.example.animalsounds.mvvm.model.Animal
 import com.example.animalsounds.mvvm.model.AnimalsGenerator
+import com.example.animalsounds.mvvm.viewModel.AnimalViewModel
+import com.google.android.material.tabs.TabLayout
 import java.io.InputStream
 
 

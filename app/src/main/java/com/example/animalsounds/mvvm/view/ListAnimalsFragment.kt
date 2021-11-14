@@ -15,18 +15,24 @@ import com.example.animalsounds.AnimalAdapter
 import com.example.animalsounds.R
 import com.example.animalsounds.databinding.ActivityMainBinding
 import com.example.animalsounds.mvvm.model.Animal
-import com.example.animalsounds.mvvm.model.AnimalsGenerator
+import com.example.animalsounds.mvvm.model.AnimalsGenerator.beastsList
 import com.example.animalsounds.mvvm.model.AnimalsGenerator.beastsPicIdList
+import com.example.animalsounds.mvvm.model.AnimalsGenerator.birdsList
 import com.example.animalsounds.mvvm.model.AnimalsGenerator.birdsPicIdList
+import com.example.animalsounds.mvvm.model.AnimalsGenerator.reptilesList
 import com.example.animalsounds.mvvm.model.AnimalsGenerator.reptilesPicIdList
+import com.example.animalsounds.mvvm.model.AnimalsGenerator.waterfowlsList
 import com.example.animalsounds.mvvm.model.AnimalsGenerator.waterfowlsPicIdList
 import com.example.animalsounds.mvvm.viewModel.AnimalViewModel
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 
-class ListAnimalsFragment(private val showAnimalInfo: (Animal) -> Unit): Fragment() {
+
+class ListAnimalsFragment(private val showAnimalInfo: (Animal) -> Unit) : Fragment() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewModel: AnimalViewModel
-    private val animalsAdapter by lazy{ AnimalAdapter(showAnimalInfo) }
+    private val animalsAdapter by lazy { AnimalAdapter(showAnimalInfo) }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,9 +43,34 @@ class ListAnimalsFragment(private val showAnimalInfo: (Animal) -> Unit): Fragmen
         viewModel = ViewModelProvider(requireActivity()).get(AnimalViewModel::class.java)
         binding.viewModel = viewModel
         setListAdapter()
-        setAnimalListener()
         compareAnimalsTextIdToDrawableId()
+        setAnimalListener()
+        setTabListener()
         return binding.root
+    }
+
+    private fun setTabListener() {
+        binding.tab.addOnTabSelectedListener(object : OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab) {
+                when (tab.position) {
+                    0 -> {
+                        viewModel.loadAnimalsByTab("birds")
+                    }
+                    1 -> {
+                        viewModel.loadAnimalsByTab("reptiles")
+                    }
+                    2 -> {
+                        viewModel.loadAnimalsByTab("waterfowls")
+                    }
+                    3 -> {
+                        viewModel.loadAnimalsByTab("beasts")
+                    }
+                }
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab) {}
+            override fun onTabReselected(tab: TabLayout.Tab) {}
+        })
     }
 
     private fun setListAdapter() {
@@ -49,14 +80,19 @@ class ListAnimalsFragment(private val showAnimalInfo: (Animal) -> Unit): Fragmen
         }
     }
 
-    private fun setAnimalListener(){
+    private fun setAnimalListener() {
         viewModel.animalsListLiveData.observe(viewLifecycleOwner, Observer {
-            animalsAdapter.setAnimalsList(it, beastsPicIdList)
+            when (it) {
+                beastsList -> animalsAdapter.setAnimalsList(it, beastsPicIdList)
+                birdsList -> animalsAdapter.setAnimalsList(it, birdsPicIdList)
+                reptilesList -> animalsAdapter.setAnimalsList(it, reptilesPicIdList)
+                waterfowlsList -> animalsAdapter.setAnimalsList(it, waterfowlsPicIdList)
+            }
         })
     }
 
     private fun compareAnimalsTextIdToDrawableId() {
-        AnimalsGenerator.beastsList.forEach {
+        beastsList.forEach {
             val picId = context?.resIdByName(it.animalAvatar, "drawable")
             if (picId != null) {
                 beastsPicIdList[it] = picId
@@ -64,7 +100,7 @@ class ListAnimalsFragment(private val showAnimalInfo: (Animal) -> Unit): Fragmen
                 beastsPicIdList[it] = 2131165337
             }
         }
-        AnimalsGenerator.birdsList.forEach {
+        birdsList.forEach {
             val picId = context?.resIdByName(it.animalAvatar, "drawable")
             if (picId != null) {
                 birdsPicIdList[it] = picId
@@ -72,7 +108,7 @@ class ListAnimalsFragment(private val showAnimalInfo: (Animal) -> Unit): Fragmen
                 birdsPicIdList[it] = 2131165337
             }
         }
-        AnimalsGenerator.reptilesList.forEach {
+        reptilesList.forEach {
             val picId = context?.resIdByName(it.animalAvatar, "drawable")
             if (picId != null) {
                 reptilesPicIdList[it] = picId
@@ -80,7 +116,7 @@ class ListAnimalsFragment(private val showAnimalInfo: (Animal) -> Unit): Fragmen
                 reptilesPicIdList[it] = 2131165337
             }
         }
-        AnimalsGenerator.waterfowlsList.forEach {
+        waterfowlsList.forEach {
             val picId = context?.resIdByName(it.animalAvatar, "drawable")
             if (picId != null) {
                 waterfowlsPicIdList[it] = picId

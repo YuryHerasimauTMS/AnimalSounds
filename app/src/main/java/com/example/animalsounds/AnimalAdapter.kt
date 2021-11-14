@@ -1,8 +1,5 @@
 package com.example.animalsounds
 
-import android.content.Context
-import android.content.res.Resources
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,8 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.animalsounds.databinding.ItemAnimalBinding
 import com.example.animalsounds.mvvm.model.Animal
-import com.example.animalsounds.mvvm.model.AnimalsGenerator
-import java.util.*
 
 class AnimalAdapter(private val action: (Animal) -> Unit) :
     RecyclerView.Adapter<AnimalAdapter.MyViewHolder>() {
@@ -21,7 +16,7 @@ class AnimalAdapter(private val action: (Animal) -> Unit) :
     private val animalList = mutableListOf<Animal>()
     private val animalPicIdList = mutableMapOf<Animal, Int>()
 
-    fun setAnimalsList(list: List<Animal>, mapOfPic: Map<Animal, Int>) {
+    fun setAnimalsList(list: List<Animal>, mapOfPic: MutableMap<Animal, Int>) {
         animalList.clear()
         animalList.addAll(list)
         animalPicIdList.clear()
@@ -53,10 +48,6 @@ class AnimalAdapter(private val action: (Animal) -> Unit) :
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-//        names.forEach {
-//            it.animalAvatar
-//            holder.animalPicture?.setBackgroundResource(R.drawable.image_leaf)
-//        }
         val currentAnimal = animalList[position]
         val currentAnimalPicId = animalPicIdList.getValue(currentAnimal)
         holder.binding.animal = currentAnimal

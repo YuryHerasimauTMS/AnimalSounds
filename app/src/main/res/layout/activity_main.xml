@@ -42,21 +42,25 @@
             app:tabTextColor="@color/inactive_tab_text">
 
             <com.google.android.material.tabs.TabItem
+                android:id="@+id/tabBirds"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Птички" />
 
             <com.google.android.material.tabs.TabItem
+                android:id="@+id/tabReptiles"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Рептилии" />
 
             <com.google.android.material.tabs.TabItem
+                android:id="@+id/tabWaterwofls"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Водоплавающие" />
 
             <com.google.android.material.tabs.TabItem
+                android:id="@+id/tabBeasts"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Звери" />
