@@ -2,15 +2,20 @@ package com.example.animalsounds.mvvm.model
 
 object AnimalsGenerator {
 
-    private var beastsList = mutableListOf<Animal>()
-    private var birdsList = mutableListOf<Animal>()
-    private var reptilesList = mutableListOf<Animal>()
-    private var waterfowlsList = mutableListOf<Animal>()
+    var beastsList = mutableListOf<Animal>()
+    var birdsList = mutableListOf<Animal>()
+    var reptilesList = mutableListOf<Animal>()
+    var waterfowlsList = mutableListOf<Animal>()
 
     private val beastsTextList = mutableListOf<String>()
     private val birdsTextList = mutableListOf<String>()
     private val reptilesTextList = mutableListOf<String>()
     private val waterfowlsTextList = mutableListOf<String>()
+
+    val beastsPicIdList = mutableMapOf<Animal, Int>()
+    val birdsPicIdList = mutableMapOf<Animal, Int>()
+    val reptilesPicIdList = mutableMapOf<Animal, Int>()
+    val waterfowlsPicIdList = mutableMapOf<Animal, Int>()
 
     private const val beasts = "beasts"
     private const val birds = "birds"

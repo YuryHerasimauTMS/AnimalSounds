@@ -6,8 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.animalsounds.databinding.ActivityFlowBinding
 import com.example.animalsounds.mvvm.model.Animal
 import com.example.animalsounds.mvvm.model.AnimalsGenerator
-import com.example.listsui.mvvm.view.AnimalFragment
-import com.example.listsui.mvvm.view.ListAnimalsFragment
 import java.io.InputStream
 
 
