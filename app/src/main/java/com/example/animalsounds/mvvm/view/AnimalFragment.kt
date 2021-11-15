@@ -3,6 +3,7 @@ package com.example.animalsounds.mvvm.view
 import android.content.Context
 import android.content.res.Resources
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,7 +25,12 @@ class AnimalFragment(private val animal: Animal) : Fragment() {
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_animal, container, false)
         binding.animal = animal
-        binding.buttonBack.setOnClickListener { activity?.onBackPressed() }
+        binding.buttonBack.setOnClickListener {
+            it.setBackgroundColor(R.color.pine_green.dec())
+            Handler().postDelayed({
+                activity?.onBackPressed()
+            }, 100)
+        }
         val picId = context?.resIdByName(animal.animalAvatar, "drawable")
         if (picId != null) {
             Glide

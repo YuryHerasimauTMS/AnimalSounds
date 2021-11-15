@@ -30,6 +30,7 @@ class AnimalAdapter(private val action: (Animal) -> Unit) :
 
         init {
             animalPicture = itemView.findViewById(R.id.animal_pic)
+
         }
     }
 

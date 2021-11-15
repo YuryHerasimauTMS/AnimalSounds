@@ -33,6 +33,7 @@ class ListAnimalsFragment(private val showAnimalInfo: (Animal) -> Unit) : Fragme
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewModel: AnimalViewModel
     private val animalsAdapter by lazy { AnimalAdapter(showAnimalInfo) }
+    private var currentTabSelected: Int = 0
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -46,30 +47,57 @@ class ListAnimalsFragment(private val showAnimalInfo: (Animal) -> Unit) : Fragme
         compareAnimalsTextIdToDrawableId()
         setAnimalListener()
         setTabListener()
+        setTabSelected()
         return binding.root
+    }
+
+    private fun setTabSelected() {
+        when (currentTabSelected) {
+            0 -> binding.tab.setScrollPosition(0, 0f, true)
+            1 -> binding.tab.setScrollPosition(1, 0f, true)
+            2 -> binding.tab.setScrollPosition(2, 0f, true)
+            3 -> binding.tab.setScrollPosition(3, 0f, true)
+        }
+    }
+
+    private fun loadAnimalsByTab(position: Int) {
+        when (position) {
+            0 -> {
+                viewModel.loadAnimalsByTab("birds")
+                currentTabSelected = 0
+            }
+            1 -> {
+                viewModel.loadAnimalsByTab("reptiles")
+                currentTabSelected = 1
+            }
+            2 -> {
+                viewModel.loadAnimalsByTab("waterfowls")
+                currentTabSelected = 2
+            }
+            3 -> {
+                viewModel.loadAnimalsByTab("beasts")
+                currentTabSelected = 3
+            }
+        }
     }
 
     private fun setTabListener() {
         binding.tab.addOnTabSelectedListener(object : OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
-                when (tab.position) {
-                    0 -> {
-                        viewModel.loadAnimalsByTab("birds")
-                    }
-                    1 -> {
-                        viewModel.loadAnimalsByTab("reptiles")
-                    }
-                    2 -> {
-                        viewModel.loadAnimalsByTab("waterfowls")
-                    }
-                    3 -> {
-                        viewModel.loadAnimalsByTab("beasts")
-                    }
-                }
+                loadAnimalsByTab(tab.position)
+                binding.recyclerView.scrollToPosition(0)
             }
 
-            override fun onTabUnselected(tab: TabLayout.Tab) {}
-            override fun onTabReselected(tab: TabLayout.Tab) {}
+            override fun onTabUnselected(tab: TabLayout.Tab) {
+                loadAnimalsByTab(tab.position)
+                binding.recyclerView.scrollToPosition(0)
+            }
+
+            override fun onTabReselected(tab: TabLayout.Tab) {
+                loadAnimalsByTab(tab.position)
+                setTabSelected()
+                binding.recyclerView.scrollToPosition(0)
+            }
         })
     }
 
