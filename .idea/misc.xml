@@ -4,20 +4,63 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/button_back.xml" value="0.35520833333333335" />
+        <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/button_icon_play_src.xml" value="0.36512820512820515" />
+        <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/button_play_circle.xml" value="0.36512820512820515" />
+        <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/button_play_play.xml" value="0.25052083333333336" />
+        <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/button_play_stop.xml" value="0.36512820512820515" />
         <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/circle.xml" value="0.37083333333333335" />
         <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/dd.xml" value="0.37083333333333335" />
         <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/gradient_shape.xml" value="0.37083333333333335" />
+        <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/ic_image_leaf.xml" value="0.36512820512820515" />
+        <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/ic_image_leaf_second.xml" value="0.25052083333333336" />
         <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/ic_launcher_background.xml" value="0.37083333333333335" />
         <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/ic_pic_hare.xml" value="0.37083333333333335" />
         <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/image_leaf.xml" value="0.22" />
         <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/pause.xml" value="0.35520833333333335" />
+        <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/pic_bear.xml" value="0.36512820512820515" />
+        <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/pic_boar.xml" value="0.36512820512820515" />
+        <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/pic_cachalot.xml" value="0.36512820512820515" />
         <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/pic_cat.xml" value="0.37083333333333335" />
+        <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/pic_chameleon.xml" value="0.36512820512820515" />
+        <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/pic_chiken.xml" value="0.36512820512820515" />
+        <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/pic_cow.xml" value="0.36512820512820515" />
+        <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/pic_crab.xml" value="0.36512820512820515" />
+        <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/pic_crocodile.xml" value="0.36512820512820515" />
+        <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/pic_crow.xml" value="0.36512820512820515" />
+        <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/pic_dear.xml" value="0.36512820512820515" />
+        <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/pic_dog.xml" value="0.36512820512820515" />
+        <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/pic_dolphin.xml" value="0.36512820512820515" />
+        <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/pic_duck.xml" value="0.36512820512820515" />
+        <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/pic_eagle.xml" value="0.36512820512820515" />
         <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/pic_elephant.xml" value="0.37083333333333335" />
+        <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/pic_fox.xml" value="0.36512820512820515" />
+        <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/pic_frog.xml" value="0.36512820512820515" />
+        <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/pic_goat.xml" value="0.36512820512820515" />
+        <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/pic_goose.xml" value="0.36512820512820515" />
+        <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/pic_grampus.xml" value="0.36512820512820515" />
         <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/pic_hare.xml" value="0.37083333333333335" />
+        <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/pic_hyena.xml" value="0.36512820512820515" />
         <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/pic_lion.xml" value="0.37083333333333335" />
+        <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/pic_lizard.xml" value="0.36512820512820515" />
+        <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/pic_lobster.xml" value="0.36512820512820515" />
         <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/pic_monkey.xml" value="0.37083333333333335" />
+        <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/pic_mouse.xml" value="0.36512820512820515" />
+        <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/pic_owl.xml" value="0.36512820512820515" />
+        <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/pic_parrot.xml" value="0.36512820512820515" />
+        <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/pic_pig.xml" value="0.36512820512820515" />
+        <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/pic_pigeon.xml" value="0.36512820512820515" />
+        <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/pic_rooster.xml" value="0.36512820512820515" />
+        <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/pic_shark.xml" value="0.36512820512820515" />
+        <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/pic_sheep.xml" value="0.36512820512820515" />
+        <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/pic_snake.xml" value="0.36512820512820515" />
+        <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/pic_sparrow.xml" value="0.36512820512820515" />
         <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/pic_squirrel.xml" value="0.37083333333333335" />
+        <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/pic_swan.xml" value="0.36512820512820515" />
         <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/pic_tiger.xml" value="0.37083333333333335" />
+        <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/pic_turtle.xml" value="0.36512820512820515" />
+        <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/pic_walrus.xml" value="0.36512820512820515" />
+        <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/pic_whale.xml" value="0.36512820512820515" />
+        <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/pic_wolf.xml" value="0.36512820512820515" />
         <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/play.xml" value="0.25" />
         <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/shape_background.xml" value="0.37083333333333335" />
         <entry key="..\:/TeachMeSkills/AnimalSounds/app/src/main/res/drawable/shape_gradient.xml" value="0.37083333333333335" />

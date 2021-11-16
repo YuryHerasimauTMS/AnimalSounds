@@ -23,18 +23,23 @@ class FlowActivity : AppCompatActivity() {
     private val reptilesTextPath: String = "animalText/reptilesText.txt"
     private val waterfowlsTextPath: String = "animalText/waterfowlsText.txt"
 
+    private var flag: Int = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityFlowBinding.inflate(layoutInflater)
         setContentView(binding.root)
         hideSystemUI()
 
-        readAllAnimals(beastsPath, beastsTextPath)
-        readAllAnimals(birdsPath, birdsTextPath)
-        readAllAnimals(reptilesPath, reptilesTextPath)
-        readAllAnimals(waterfowlsPath, waterfowlsTextPath)
+        if (flag == 0) {
+            readAllAnimals(beastsPath, beastsTextPath)
+            readAllAnimals(birdsPath, birdsTextPath)
+            readAllAnimals(reptilesPath, reptilesTextPath)
+            readAllAnimals(waterfowlsPath, waterfowlsTextPath)
+        }
 
         setListAnimalsFragment()
+        flag = 1
     }
 
     private fun hideSystemUI() {

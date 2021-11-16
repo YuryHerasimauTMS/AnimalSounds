@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.example.animalsounds.mvvm.viewModel.AnimalViewModel" />
@@ -17,7 +18,7 @@
         <ImageView
             android:id="@+id/background_part"
             android:layout_width="320dp"
-            android:layout_height="650dp"
+            android:layout_height="850dp"
             android:layout_marginTop="200dp"
             android:src="@drawable/shape_background"
             app:layout_constraintHorizontal_bias="100.0"
@@ -31,12 +32,12 @@
             android:layout_marginTop="280dp"
             android:layout_marginRight="-160dp"
             android:background="@color/viridian"
-            app:tabRippleColor="@color/viridian"
             android:rotation="270"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:tabIndicatorColor="@color/viridian"
             app:tabMode="scrollable"
+            app:tabRippleColor="@color/viridian"
             app:tabSelectedTextColor="@color/white"
             app:tabTextAppearance="@style/CustomTextAppearanceTab"
             app:tabTextColor="@color/inactive_tab_text">
@@ -104,6 +105,55 @@
                     android:textSize="19sp"
                     app:layout_constraintStart_toStartOf="@+id/recycler_view"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="-20dp"
+                    android:layout_marginTop="220dp"
+                    android:background="@drawable/image_leaf"
+                    android:rotation="-90"
+                    android:scaleX="0.25"
+                    android:scaleY="0.25"
+                    app:layout_constraintBottom_toBottomOf="@id/recycler_view"
+                    app:layout_constraintStart_toStartOf="@id/recycler_view"
+                    app:layout_constraintTop_toTopOf="@id/recycler_view" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-420dp"
+                    android:background="@drawable/image_leaf"
+                    android:scaleX="-0.12"
+                    android:scaleY="-0.12"
+                    app:layout_constraintBottom_toBottomOf="@id/recycler_view"
+                    app:layout_constraintStart_toStartOf="@id/recycler_view"
+                    app:layout_constraintTop_toTopOf="@id/recycler_view" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="-210dp"
+                    android:layout_marginTop="-200dp"
+                    android:background="@drawable/image_leaf"
+                    android:scaleX="0.25"
+                    android:scaleY="0.25"
+                    app:layout_constraintBottom_toBottomOf="@id/recycler_view"
+                    app:layout_constraintStart_toStartOf="@id/recycler_view"
+                    app:layout_constraintTop_toTopOf="@id/recycler_view" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="-80dp"
+                    android:layout_marginTop="550dp"
+                    android:background="@drawable/image_leaf_second"
+                    android:rotation="-65"
+                    android:scaleX="0.45"
+                    android:scaleY="0.45"
+                    app:layout_constraintBottom_toBottomOf="@id/recycler_view"
+                    app:layout_constraintStart_toStartOf="@id/recycler_view"
+                    app:layout_constraintTop_toTopOf="@id/recycler_view" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

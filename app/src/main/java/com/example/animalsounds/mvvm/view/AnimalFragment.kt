@@ -7,16 +7,19 @@ import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.example.animalsounds.R
 import com.example.animalsounds.databinding.FragmentAnimalBinding
 import com.example.animalsounds.mvvm.model.Animal
+import com.example.animalsounds.mvvm.model.AnimalsGenerator
 
 class AnimalFragment(private val animal: Animal) : Fragment() {
 
     private lateinit var binding: FragmentAnimalBinding
+    private var playButtonStatus: Int = 0
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -25,12 +28,8 @@ class AnimalFragment(private val animal: Animal) : Fragment() {
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_animal, container, false)
         binding.animal = animal
-        binding.buttonBack.setOnClickListener {
-            it.setBackgroundColor(R.color.pine_green.dec())
-            Handler().postDelayed({
-                activity?.onBackPressed()
-            }, 100)
-        }
+        buttonBackOnClick()
+        buttonPlayOnClick()
         val picId = context?.resIdByName(animal.animalAvatar, "drawable")
         if (picId != null) {
             Glide
@@ -48,5 +47,38 @@ class AnimalFragment(private val animal: Animal) : Fragment() {
             return resources.getIdentifier(it, resType, packageName)
         }
         throw Resources.NotFoundException()
+    }
+
+    private fun buttonBackOnClick() {
+        binding.buttonBack.setOnClickListener {
+            it.setBackgroundColor(R.color.pine_green.dec())
+            Handler().postDelayed({
+                activity?.onBackPressed()
+            }, 100)
+        }
+    }
+
+    private fun buttonPlayOnClick() {
+        binding.buttonPlay.setOnClickListener {
+            when (playButtonStatus) {
+                0 -> {
+                    val buttonId = context?.resIdByName("button_play_stop", "drawable")
+                    if (buttonId != null) {
+                        it.setBackgroundResource(buttonId)
+                    }
+                    playButtonStatus = 1
+                }
+                1 -> {
+                    val buttonId = context?.resIdByName("button_play_play", "drawable")
+                    if (buttonId != null) {
+                        it.setBackgroundResource(buttonId)
+                    }
+                    playButtonStatus = 0
+                }
+            }
+
+
+
+        }
     }
 }

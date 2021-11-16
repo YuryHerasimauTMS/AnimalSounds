@@ -34,6 +34,7 @@ class ListAnimalsFragment(private val showAnimalInfo: (Animal) -> Unit) : Fragme
     private lateinit var viewModel: AnimalViewModel
     private val animalsAdapter by lazy { AnimalAdapter(showAnimalInfo) }
     private var currentTabSelected: Int = 0
+    private var flagOfSetDrawableId: Int = 0
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -120,37 +121,40 @@ class ListAnimalsFragment(private val showAnimalInfo: (Animal) -> Unit) : Fragme
     }
 
     private fun compareAnimalsTextIdToDrawableId() {
-        beastsList.forEach {
-            val picId = context?.resIdByName(it.animalAvatar, "drawable")
-            if (picId != null) {
-                beastsPicIdList[it] = picId
-            } else {
-                beastsPicIdList[it] = 2131165337
+        if (flagOfSetDrawableId == 0) {
+            beastsList.forEach {
+                val picId = context?.resIdByName(it.animalAvatar, "drawable")
+                if (picId != null) {
+                    beastsPicIdList[it] = picId
+                } else {
+                    beastsPicIdList[it] = 2131165337
+                }
             }
-        }
-        birdsList.forEach {
-            val picId = context?.resIdByName(it.animalAvatar, "drawable")
-            if (picId != null) {
-                birdsPicIdList[it] = picId
-            } else {
-                birdsPicIdList[it] = 2131165337
+            birdsList.forEach {
+                val picId = context?.resIdByName(it.animalAvatar, "drawable")
+                if (picId != null) {
+                    birdsPicIdList[it] = picId
+                } else {
+                    birdsPicIdList[it] = 2131165337
+                }
             }
-        }
-        reptilesList.forEach {
-            val picId = context?.resIdByName(it.animalAvatar, "drawable")
-            if (picId != null) {
-                reptilesPicIdList[it] = picId
-            } else {
-                reptilesPicIdList[it] = 2131165337
+            reptilesList.forEach {
+                val picId = context?.resIdByName(it.animalAvatar, "drawable")
+                if (picId != null) {
+                    reptilesPicIdList[it] = picId
+                } else {
+                    reptilesPicIdList[it] = 2131165337
+                }
             }
-        }
-        waterfowlsList.forEach {
-            val picId = context?.resIdByName(it.animalAvatar, "drawable")
-            if (picId != null) {
-                waterfowlsPicIdList[it] = picId
-            } else {
-                waterfowlsPicIdList[it] = 2131165337
+            waterfowlsList.forEach {
+                val picId = context?.resIdByName(it.animalAvatar, "drawable")
+                if (picId != null) {
+                    waterfowlsPicIdList[it] = picId
+                } else {
+                    waterfowlsPicIdList[it] = 2131165337
+                }
             }
+            flagOfSetDrawableId = 1
         }
     }
 
