@@ -11,4 +11,5 @@
     <color name="pine_green">#234A49</color>
     <color name="inactive_tab_text">#729292</color>
     <color name="transparent">#00333415</color>
+    <color name="splash_screen">#F9F6ED</color>
 </resources>

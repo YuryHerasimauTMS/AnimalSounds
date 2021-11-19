@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/splash_screen">
+
+    <ImageView
+        android:id="@+id/logo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/animal_sounds_logo"
+        android:scaleX="0.4"
+        android:scaleY="0.4"
+        android:layout_marginBottom="500dp"
+        android:visibility="visible"/>
+
+    <ImageView
+        android:id="@+id/wave_one"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/wave_first"
+        android:scaleX="3"
+        android:scaleY="3"
+        android:layout_marginBottom="300dp"/>
+
+    <ImageView
+        android:id="@+id/wave_dolphin"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/wave_dolphin"
+        android:layout_marginBottom="-500dp"/>
+
+    <ImageView
+        android:id="@+id/wave_two"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/wave_second"
+        android:scaleX="3"
+        android:scaleY="3"
+        android:layout_marginBottom="300dp"
+        android:layout_marginStart="100dp"/>
+
+
+    <ImageView
+        android:id="@+id/wave_three"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/wave_third"
+        android:scaleX="3"
+        android:scaleY="3"
+        android:layout_marginBottom="300dp"/>
+
+
+    <ImageView
+        android:id="@+id/wave_four"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/wave_fourth"
+        android:scaleX="3"
+        android:scaleY="3"
+        android:layout_marginBottom="300dp"/>
+
+    <ImageView
+        android:id="@+id/wave_fifth"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/wave_fifth"
+        android:scaleX="3"
+        android:scaleY="3"
+        android:layout_marginBottom="300dp"
+        android:layout_marginStart="100dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
