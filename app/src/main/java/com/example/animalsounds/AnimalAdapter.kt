@@ -1,5 +1,6 @@
 package com.example.animalsounds
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,6 +17,7 @@ class AnimalAdapter(private val action: (Animal) -> Unit) :
     private val animalList = mutableListOf<Animal>()
     private val animalPicIdList = mutableMapOf<Animal, Int>()
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setAnimalsList(list: List<Animal>, mapOfPic: MutableMap<Animal, Int>) {
         animalList.clear()
         animalList.addAll(list)
@@ -30,7 +32,6 @@ class AnimalAdapter(private val action: (Animal) -> Unit) :
 
         init {
             animalPicture = itemView.findViewById(R.id.animal_pic)
-
         }
     }
 

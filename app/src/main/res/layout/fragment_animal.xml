@@ -100,6 +100,7 @@
             android:layout_marginTop="20dp" />
 
         <ImageView
+            android:id="@+id/leaf"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/image_leaf"

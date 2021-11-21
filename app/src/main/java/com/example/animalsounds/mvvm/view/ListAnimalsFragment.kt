@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AccelerateDecelerateInterpolator
+import android.widget.ImageView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -49,7 +51,39 @@ class ListAnimalsFragment(private val showAnimalInfo: (Animal) -> Unit) : Fragme
         setAnimalListener()
         setTabListener()
         setTabSelected()
+        startAnimation()
         return binding.root
+    }
+
+    private fun startAnimation() {
+        val leafLeftBottom = binding.leafLeftBottom
+        val leafLeftUpper = binding.leafLeftUpper
+        val leafRightBottom = binding.leafRightBottom
+        val leafRightUpper = binding.leafRightUpper
+
+        animateLeaves(leafLeftBottom, -300F, 0f, 2000f, 1700f, 600, 360f)
+        animateLeaves(leafLeftUpper, -600F, -380f, -200f, 100f, 600, 360f)
+        animateLeaves(leafRightBottom, 600F, 140f, 1200f, 800f, 600, 270f)
+        animateLeaves(leafRightUpper, 600F, 200f, -100f, 200f, 600, 360f)
+    }
+
+    private fun animateLeaves(
+        leaf: ImageView,
+        startXPosition: Float,
+        endXPosition: Float,
+        startYPosition: Float,
+        endYPosition: Float,
+        delay: Long,
+        rotation: Float
+    ) {
+        leaf.x = startXPosition
+        leaf.y = startYPosition
+        leaf.animate()
+            .x(endXPosition)
+            .y(endYPosition)
+            .setStartDelay(delay)
+            .rotation(rotation)
+            .setDuration(500).interpolator = AccelerateDecelerateInterpolator()
     }
 
     private fun setTabSelected() {

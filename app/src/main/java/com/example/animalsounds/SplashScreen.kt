@@ -1,30 +1,53 @@
 package com.example.animalsounds
 
 import android.animation.ObjectAnimator
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
-import android.provider.ContactsContract
 import android.view.View
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.animalsounds.mvvm.model.AnimalsGenerator
 import com.example.animalsounds.mvvm.view.FlowActivity
+import java.io.InputStream
 
+@SuppressLint("CustomSplashScreen")
 class SplashScreen : AppCompatActivity() {
+
+    private val beastsPath: String = "animalNames/beastsNames"
+    private val birdsPath: String = "animalNames/birdsNames"
+    private val reptilesPath: String = "animalNames/reptilesNames"
+    private val waterfowlsPath: String = "animalNames/waterfowlsNames"
+
+    private val beastsTextPath: String = "animalText/beastsText.txt"
+    private val birdsTextPath: String = "animalText/birdsText.txt"
+    private val reptilesTextPath: String = "animalText/reptilesText.txt"
+    private val waterfowlsTextPath: String = "animalText/waterfowlsText.txt"
+
+    private var flag: Int = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.splash_screen)
 
         hideSystemUI()
 
+        if (flag == 0) {
+            readAllAnimals(beastsPath, beastsTextPath)
+            readAllAnimals(birdsPath, birdsTextPath)
+            readAllAnimals(reptilesPath, reptilesTextPath)
+            readAllAnimals(waterfowlsPath, waterfowlsTextPath)
+        }
+        flag = 1
+
         Handler().postDelayed({
             val intent = Intent(this, FlowActivity::class.java)
             startActivity(intent)
             finish()
-        }, 3000)
+        }, 2000)
 
         startAnimation()
-
     }
 
     private fun startAnimation() {
@@ -41,11 +64,11 @@ class SplashScreen : AppCompatActivity() {
         startWaves(waveFourth, -1000f, 1000f)
         startWaves(waveFifth, 1000f, -1000f)
 
-        startLogo(logo, 0f, 1f)
+        startLogo(logo)
     }
 
-    private fun startLogo(imageView: ImageView, firstValue: Float, secondValue: Float) {
-        val animator = ObjectAnimator.ofFloat(imageView, View.ALPHA, firstValue, secondValue)
+    private fun startLogo(imageView: ImageView) {
+        val animator = ObjectAnimator.ofFloat(imageView, View.ALPHA, 0f, 1f)
         animator.duration = 1200
         animator.repeatCount = 2
         animator.repeatMode = ObjectAnimator.REVERSE
@@ -70,5 +93,24 @@ class SplashScreen : AppCompatActivity() {
                     or View.SYSTEM_UI_FLAG_FULLSCREEN // hide status bar
                     or View.SYSTEM_UI_FLAG_IMMERSIVE
         )
+    }
+
+    private fun readAllAnimals(path: String, pathText: String) {
+        var animalsId: String? = null
+        when (path) {
+            beastsPath -> animalsId = "beasts"
+            birdsPath -> animalsId = "birds"
+            reptilesPath -> animalsId = "reptiles"
+            waterfowlsPath -> animalsId = "waterfowls"
+        }
+        val animalList = mutableListOf<String>()
+        val animalTextList = mutableListOf<String>()
+        var inputStream: InputStream = assets.open(path)
+        inputStream.bufferedReader().forEachLine { animalList.add(it) }
+        inputStream.close()
+        inputStream = assets.open(pathText)
+        inputStream.bufferedReader().forEachLine { animalTextList.add(it) }
+        AnimalsGenerator.setAnimalsList(animalList, animalsId, animalTextList)
+        AnimalsGenerator.compareTextAnimalsToAnimals(animalsId)
     }
 }

@@ -7,14 +7,13 @@ import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import android.view.animation.AccelerateDecelerateInterpolator
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.example.animalsounds.R
 import com.example.animalsounds.databinding.FragmentAnimalBinding
 import com.example.animalsounds.mvvm.model.Animal
-import com.example.animalsounds.mvvm.model.AnimalsGenerator
 
 class AnimalFragment(private val animal: Animal) : Fragment() {
 
@@ -26,11 +25,12 @@ class AnimalFragment(private val animal: Animal) : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val picId = context?.resIdByName(animal.animalAvatar, "drawable")
+
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_animal, container, false)
         binding.animal = animal
         buttonBackOnClick()
         buttonPlayOnClick()
-        val picId = context?.resIdByName(animal.animalAvatar, "drawable")
         if (picId != null) {
             Glide
                 .with(binding.root)
@@ -52,9 +52,10 @@ class AnimalFragment(private val animal: Animal) : Fragment() {
     private fun buttonBackOnClick() {
         binding.buttonBack.setOnClickListener {
             it.setBackgroundColor(R.color.pine_green.dec())
+
             Handler().postDelayed({
                 activity?.onBackPressed()
-            }, 100)
+            }, 170)
         }
     }
 
@@ -76,7 +77,6 @@ class AnimalFragment(private val animal: Animal) : Fragment() {
                     playButtonStatus = 0
                 }
             }
-
 
 
         }

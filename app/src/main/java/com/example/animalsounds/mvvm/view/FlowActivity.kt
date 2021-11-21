@@ -1,45 +1,26 @@
 package com.example.animalsounds.mvvm.view
 
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
+import android.view.animation.AccelerateDecelerateInterpolator
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.animalsounds.R
 import com.example.animalsounds.databinding.ActivityFlowBinding
 import com.example.animalsounds.mvvm.model.Animal
-import com.example.animalsounds.mvvm.model.AnimalsGenerator
-import java.io.InputStream
 
 
 class FlowActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityFlowBinding
 
-    private val beastsPath: String = "animalNames/beastsNames"
-    private val birdsPath: String = "animalNames/birdsNames"
-    private val reptilesPath: String = "animalNames/reptilesNames"
-    private val waterfowlsPath: String = "animalNames/waterfowlsNames"
-
-    private val beastsTextPath: String = "animalText/beastsText.txt"
-    private val birdsTextPath: String = "animalText/birdsText.txt"
-    private val reptilesTextPath: String = "animalText/reptilesText.txt"
-    private val waterfowlsTextPath: String = "animalText/waterfowlsText.txt"
-
-    private var flag: Int = 0
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityFlowBinding.inflate(layoutInflater)
         setContentView(binding.root)
         hideSystemUI()
-
-        if (flag == 0) {
-            readAllAnimals(beastsPath, beastsTextPath)
-            readAllAnimals(birdsPath, birdsTextPath)
-            readAllAnimals(reptilesPath, reptilesTextPath)
-            readAllAnimals(waterfowlsPath, waterfowlsTextPath)
-        }
-
         setListAnimalsFragment()
-        flag = 1
     }
 
     private fun hideSystemUI() {
@@ -64,29 +45,38 @@ class FlowActivity : AppCompatActivity() {
     }
 
     private fun showAnimalInfo(animal: Animal) {
-        supportFragmentManager
-            .beginTransaction()
-            .replace(binding.container.id, AnimalFragment(animal))
-            .addToBackStack(null)
-            .commit()
+        startLeavesAnimation()
+        Handler().postDelayed({
+            supportFragmentManager
+                .beginTransaction()
+                .replace(binding.container.id, AnimalFragment(animal))
+                .addToBackStack(null)
+                .commit()
+        }, 300)
     }
 
-    private fun readAllAnimals(path: String, pathText: String) {
-        var animalsId: String? = null
-        when (path) {
-            beastsPath -> animalsId = "beasts"
-            birdsPath -> animalsId = "birds"
-            reptilesPath -> animalsId = "reptiles"
-            waterfowlsPath -> animalsId = "waterfowls"
-        }
-        val animalList = mutableListOf<String>()
-        val animalTextList = mutableListOf<String>()
-        var inputStream: InputStream = assets.open(path)
-        inputStream.bufferedReader().forEachLine { animalList.add(it) }
-        inputStream.close()
-        inputStream = assets.open(pathText)
-        inputStream.bufferedReader().forEachLine { animalTextList.add(it) }
-        AnimalsGenerator.setAnimalsList(animalList, animalsId, animalTextList)
-        AnimalsGenerator.compareTextAnimalsToAnimals(animalsId)
+    private fun startLeavesAnimation() {
+        val leafLeftBottom = findViewById<ImageView>(R.id.leafLeftBottom)
+        val leafLeftUpper = findViewById<ImageView>(R.id.leafLeftUpper)
+        val leafRightBottom = findViewById<ImageView>(R.id.leafRightBottom)
+        val leafRightUpper = findViewById<ImageView>(R.id.leafRightUpper)
+
+        animateLeaves(leafLeftBottom, 0f, -300F)
+        animateLeaves(leafLeftUpper, -380F, -600F)
+        animateLeaves(leafRightBottom, 140F, 600F)
+        animateLeaves(leafRightUpper, 200F, 600F)
+    }
+
+    private fun animateLeaves(
+        leaf: ImageView,
+        startXPosition: Float,
+        endXPosition: Float
+    ) {
+        leaf.x = startXPosition
+        leaf.animate()
+            .x(endXPosition)
+            .setStartDelay(0)
+            .rotation(-90f)
+            .setDuration(300).interpolator = AccelerateDecelerateInterpolator()
     }
 }

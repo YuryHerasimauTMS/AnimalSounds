@@ -107,6 +107,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
+                    android:id="@+id/leafRightBottom"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="-20dp"
@@ -120,6 +121,7 @@
                     app:layout_constraintTop_toTopOf="@id/recycler_view" />
 
                 <ImageView
+                    android:id="@+id/leafRightUpper"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="-420dp"
@@ -131,9 +133,10 @@
                     app:layout_constraintTop_toTopOf="@id/recycler_view" />
 
                 <ImageView
+                    android:id="@+id/leafLeftUpper"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="-210dp"
+                    android:layout_marginStart="-220dp"
                     android:layout_marginTop="-200dp"
                     android:background="@drawable/image_leaf"
                     android:scaleX="0.25"
@@ -143,6 +146,7 @@
                     app:layout_constraintTop_toTopOf="@id/recycler_view" />
 
                 <ImageView
+                    android:id="@+id/leafLeftBottom"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="-80dp"
